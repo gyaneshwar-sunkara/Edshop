@@ -20,7 +20,7 @@
 
 ## UI
 
-    react-native-paper
+    npm install react-native-paper
 
 ## Icons
 
@@ -39,7 +39,7 @@ Update `Edshop\android\app\src\main\AndroidManifest.xml`
         ...
         android:resizeableActivity="false">
 
-## App Icons & Splash Screen
+# App Icons & Splash Screen
 
 - ic_launcher
 
@@ -52,3 +52,5 @@ Update `Edshop\android\app\src\main\AndroidManifest.xml`
 - screen
 
   Move folders from `Edshop\resources\splash_screen` to `Edshop\android\app\src\main\res`
+
+# Bottom tab navigator & Statusbar
