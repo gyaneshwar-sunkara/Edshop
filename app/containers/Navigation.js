@@ -6,10 +6,15 @@ import Courses from './screens/Courses';
 import Profile from './screens/Profile';
 import {primary} from '../values/colors';
 
-// Constants
+// Navigator
 const Tab = createMaterialBottomTabNavigator();
 
-// Container Component
+// Tab Icon Component
+const tabIcon = (name) => ({color}) => (
+  <Icon name={name} size={20} color={color} />
+);
+
+// Navigator Component
 export default function Navigation() {
   const home = Date.now() % 2 == 0 ? 'Workshops' : 'Courses';
 
@@ -22,9 +27,7 @@ export default function Navigation() {
         component={Workshops}
         options={{
           tabBarLabel: 'Workshops',
-          tabBarIcon: ({color}) => (
-            <Icon name="television" size={20} color={color} />
-          ),
+          tabBarIcon: tabIcon('television'),
         }}
       />
       <Tab.Screen
@@ -32,9 +35,7 @@ export default function Navigation() {
         component={Courses}
         options={{
           tabBarLabel: 'Courses',
-          tabBarIcon: ({color}) => (
-            <Icon name="graduation-cap" size={20} color={color} />
-          ),
+          tabBarIcon: tabIcon('graduation-cap'),
         }}
       />
       <Tab.Screen
@@ -42,9 +43,7 @@ export default function Navigation() {
         component={Profile}
         options={{
           tabBarLabel: 'Profile',
-          tabBarIcon: ({color}) => (
-            <Icon name="user-o" size={20} color={color} />
-          ),
+          tabBarIcon: tabIcon('user-o'),
         }}
       />
     </Tab.Navigator>
