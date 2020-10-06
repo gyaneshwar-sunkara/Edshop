@@ -1,10 +1,14 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {createStackNavigator} from '@react-navigation/stack';
 
+import {screenOptions} from '../../values/styles';
+import ProfileScreen from '../screens/ProfileScreen';
+
+const Stack = createStackNavigator();
 export default function ProfileTab() {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>Profile Screen</Text>
-    </View>
+    <Stack.Navigator screenOptions={screenOptions}>
+      <Stack.Screen name="Profile" component={ProfileScreen} />
+    </Stack.Navigator>
   );
 }

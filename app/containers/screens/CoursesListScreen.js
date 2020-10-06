@@ -1,7 +1,6 @@
 import React from 'react';
 import {FlatList, SafeAreaView, StyleSheet} from 'react-native';
-import {Appbar, Card, Paragraph} from 'react-native-paper';
-import {primary} from '../../values/colors';
+import {Card, Paragraph} from 'react-native-paper';
 
 const DATA = [
   {
@@ -27,8 +26,10 @@ const DATA = [
   },
 ];
 
-const Item = ({title, cover, content}) => (
-  <Card style={styles.item}>
+const Item = ({title, cover, content, navigation}) => (
+  <Card
+    style={styles.item}
+    onPress={() => navigation.navigate('Course', {title})}>
     <Card.Cover source={{uri: cover}} />
     <Card.Title title={title} />
 
@@ -38,16 +39,18 @@ const Item = ({title, cover, content}) => (
   </Card>
 );
 
-export default function CoursesListScreen() {
+export default function CoursesListScreen({navigation}) {
   const renderItem = ({item}) => (
-    <Item title={item.title} content={item.content} cover={item.cover} />
+    <Item
+      title={item.title}
+      content={item.content}
+      cover={item.cover}
+      navigation={navigation}
+    />
   );
 
   return (
     <SafeAreaView style={styles.container}>
-      <Appbar.Header style={{backgroundColor: primary}}>
-        <Appbar.Content title="Edshop" />
-      </Appbar.Header>
       <FlatList
         data={DATA}
         renderItem={renderItem}

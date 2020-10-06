@@ -20,7 +20,7 @@ const tabIcon = (name) => ({color}) => (
 export default function Navigator() {
   return (
     <Tab.Navigator
-      initialRouteName={'Workshops'}
+      initialRouteName={'Courses'}
       barStyle={{backgroundColor: primary}}>
       <Tab.Screen
         name="Courses"
@@ -35,7 +35,7 @@ export default function Navigator() {
         component={Workshops}
         options={{
           tabBarLabel: 'Workshops',
-          tabBarIcon: tabIcon('tv'),
+          tabBarIcon: tabIcon('desktop'),
         }}
       />
       <Tab.Screen
