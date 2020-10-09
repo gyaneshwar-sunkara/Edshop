@@ -1,9 +1,11 @@
 import React from 'react';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Workshops from './screens/Workshops';
-import Courses from './screens/Courses';
-import Profile from './screens/Profile';
+
+import Courses from './tabs/CoursesTab';
+import Workshops from './tabs/WorkshopsTab';
+import Clips from './tabs/ClipsTab';
+import Profile from './tabs/ProfileTab';
 import {primary} from '../values/colors';
 
 // Navigator
@@ -15,27 +17,33 @@ const tabIcon = (name) => ({color}) => (
 );
 
 // Navigator Component
-export default function Navigation() {
-  const home = Date.now() % 2 == 0 ? 'Workshops' : 'Courses';
-
+export default function Navigator() {
   return (
     <Tab.Navigator
-      initialRouteName={home}
+      initialRouteName={'Courses'}
       barStyle={{backgroundColor: primary}}>
-      <Tab.Screen
-        name="Workshops"
-        component={Workshops}
-        options={{
-          tabBarLabel: 'Workshops',
-          tabBarIcon: tabIcon('television'),
-        }}
-      />
       <Tab.Screen
         name="Courses"
         component={Courses}
         options={{
           tabBarLabel: 'Courses',
-          tabBarIcon: tabIcon('graduation-cap'),
+          tabBarIcon: tabIcon('leanpub'),
+        }}
+      />
+      <Tab.Screen
+        name="Workshops"
+        component={Workshops}
+        options={{
+          tabBarLabel: 'Workshops',
+          tabBarIcon: tabIcon('desktop'),
+        }}
+      />
+      <Tab.Screen
+        name="Clips"
+        component={Clips}
+        options={{
+          tabBarLabel: 'Clips',
+          tabBarIcon: tabIcon('film'),
         }}
       />
       <Tab.Screen
@@ -43,7 +51,7 @@ export default function Navigation() {
         component={Profile}
         options={{
           tabBarLabel: 'Profile',
-          tabBarIcon: tabIcon('user-o'),
+          tabBarIcon: tabIcon('user-circle-o'),
         }}
       />
     </Tab.Navigator>
